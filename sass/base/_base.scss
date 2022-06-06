@@ -1,0 +1,22 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /*
+  this is the trick:border:
+    if we set font-size in html part to 10px we can use 1 rem as a unit of 10px size for css property
+    but for best setting we use percent
+    that is mean default font size of browser is 16px => 100%
+    we want 10px as a base => 10px / 16px = 0.625 => 0.625 * 100% = 62.5%
+  */
+  font-size: 62.5%; /* now if client change its default size on browser our page still have best size*/
+}
+
+body {
+  box-sizing: border-box; /* this will cause that width and height is sum of content width + padding*/
+}
