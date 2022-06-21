@@ -6,15 +6,34 @@
   box-sizing: inherit;
 }
 
+// html {
+//   /*
+//   this is the trick:border:
+//     if we set font-size in html part to 10px we can use 1 rem as a unit of 10px size for css property
+//     but for best setting we use percent
+//     that is mean default font size of browser is 16px => 100%
+//     we want 10px as a base => 10px / 16px = 0.625 => 0.625 * 100% = 62.5%
+//   */
+//   font-size: 62.5%; /* now if client change its default size on browser our page still have best size*/
+// }
+
 html {
-  /*
-  this is the trick:border:
-    if we set font-size in html part to 10px we can use 1 rem as a unit of 10px size for css property
-    but for best setting we use percent
-    that is mean default font size of browser is 16px => 100%
-    we want 10px as a base => 10px / 16px = 0.625 => 0.625 * 100% = 62.5%
-  */
-  font-size: 62.5%; /* now if client change its default size on browser our page still have best size*/
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
 }
 
 body {
