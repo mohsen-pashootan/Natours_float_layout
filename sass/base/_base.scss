@@ -38,4 +38,9 @@ html {
 
 body {
   box-sizing: border-box; /* this will cause that width and height is sum of content width + padding*/
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0px;
+  }
 }
